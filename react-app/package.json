@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "React application",
   "private": true,
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
     "@react-oauth/google": "^0.13.4",
