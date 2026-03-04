@@ -1,0 +1,100 @@
+/* ──────────────────────────────────────────────────────────────
+   Paragon Web Studio — Brand Styles
+   Imported from App.css; scoped to .paragon-root
+   ────────────────────────────────────────────────────────────── */
+
+/* Deep dark background */
+.paragon-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: #06060e;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -5%, rgba(255, 95, 109, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255, 140, 66, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 20% 60%, rgba(255, 95, 109, 0.05) 0%, transparent 60%);
+}
+
+/* Override root text color for Paragon page */
+.paragon-root {
+  color: #ffffff;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+/* Smooth scrolling (respects prefers-reduced-motion via html block) */
+.paragon-root * {
+  scroll-behavior: smooth;
+}
+
+/* Skip to main content for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: #FF5F6D;
+  color: white;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* Dot bounce for chat typing indicator */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%       { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Gradient shimmer for CTA hover */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Paragon coral glow pulse (for hero CTA) */
+@keyframes coralPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 95, 109, 0.3); }
+  50%       { box-shadow: 0 0 45px rgba(255, 95, 109, 0.55); }
+}
+
+.paragon-cta-primary {
+  animation: coralPulse 3s ease-in-out infinite;
+}
+
+/* Section divider line utility */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+}
+
+/* Reduced motion: disable all Paragon animations */
+@media (prefers-reduced-motion: reduce) {
+  .paragon-root * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .paragon-cta-primary {
+    animation: none;
+  }
+}
+
+/* High-contrast mode support */
+@media (forced-colors: active) {
+  .paragon-root button,
+  .paragon-root a {
+    border: 2px solid ButtonText;
+  }
+}
